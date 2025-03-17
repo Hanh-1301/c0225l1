@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai 1 : Tính Diem</title>
+</head>
+<body>
+<input type="number" value="Vat Ly" id="physics_point"><br>
+
+<input type="number" value="Hoa Hoc " id="chemistry_point"><br>
+<input type="number"  value="Sinh Hoc" id="biology_point"><br>
+
+<input type="button" value="Calculate" id=" calculate" onclick="tinh_diem()">
+<script>
+    // Element (html) << input
+    // By id << physics_point
+    //var diem_vat_ly= document.getElementById(" physics_point");//tro den o iput
+    //var vatly =diem_vat_ly.value;// ly gia tri cua thuoc tinh value. cua o input
+
+    //kieu DL mac dinh cua input:chuoi
+    // doi chuoi sang so --> de thuc hien phep tinh so hoc .
+    // parseFloat --> so thuc 1.1
+    // parseInt
+    // Number
+
+    //Buoc 1: viet ham(dinh nghia ham)
+    //Buoc 2 :su dung ham(dung o su kien click vao buttun
+    //Dua lenh vao ham
+    function tinh_diem() {
+        var vatLy =parseInt(document.getElementById("physics_point").value);
+        document.write(vatLy);// lay gia tri vatLy va hien thi trong ham (luu tru trong bo nho)
+        var hoahoc =parseInt(document.getElementById("chemistry_point").value);
+        document.write(hoahoc);
+        var sinhhoc =parseInt(document.getElementById("biology_point").value);
+        document.write(sinhhoc);
+        var diem_trung_binh =(vatLy + hoahoc + sinhhoc)/3;
+        document.write(diem_trung_binh);// gia tri cua diem va hien thi ra man hinh
+
+    }
+
+</script>
+
+</body>
+</html>
