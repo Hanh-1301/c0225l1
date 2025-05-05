@@ -1,10 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Bài 1</title>
 </head>
 <body>
-$END$
+<h2>Nhập mảng số nguyên và tính trung bình cộng</h2>
+<label for=" mangSoNguyen">Nhập mảng số nguyên n<=50 : </label>
+<input type="text" id=" mangSoNguyen" name="mangSoNguyen"><br>
+
+<button onclick="nhapMangVaTinhMang"> Nhập và Tính Trung Bình</button>
+
+<p id="hienThiMang"></p>
+<p id="ketQua"></p>
+<script>
+    let mang[];
+    function kiemTraN(n){
+        if (isNaN(n)){
+            alert("Phần tử nhập vào không phải số nguyên.  ");
+            return false;
+        }
+        n = parseInt(n);
+        if (n <=0 || n >50){
+            alert("Số phần tử lớn hơn 0 và nhỏ hơn bằng 50.");
+            return  false;
+        }
+    }
+    function nhapMangVaTinhMang() {
+     const inputMang = document.getElementById(" mangSoNguyen") .value;
+        const  cacSo = inputMang.split(',').map(numStr => parseInt(numStr.trim()));
+         const  n =cacSo.length;
+         if (!kiemTraN(n)){
+             return;
+         }
+         mang = [ ...cacSo];
+         hienThiMang();
+         tinhTrungBinhCongSoLeViTriChan();
+    }
+    function hienThiMang() {
+        document.getElementById("hienThiMang");
+    }
+function tinhTrungBinhCongSoLeViTriChan() {
+        let  tong = 0 ;
+        let soLuong = 0;
+        let phepTinh = "";
+        for ( let  i = 0 ; i < mang.length; i++){
+            if (i %2 === 0 && mang[i] % 2 !== 0){
+                tong += mang[i];
+                soLuong++;
+                if (phepTinh !== ""){
+                    phepTinh += " +";
+                }
+                phepTinh +=mang[i];
+            }
+        }
+        const  ketQuaElement = document.getElementById("ketQua");
+        if (soLuong > 0){
+            const  trungBinhCong = cong / soLuong;
+            ketQuaElement.textContent =`Trung bình cộng số lẻ ở vị trí chẵn : (${ phepTinh})/${soLuong} ${trungBinhCong}`;
+
+        }else {
+            ketQuaElement.textContent = "Không có số lẻ nào ở vị trí chẵn trong mảng";
+        }
+
+}
+</script>
 </body>
 </html>
