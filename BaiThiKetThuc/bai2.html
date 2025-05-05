@@ -1,10 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Bài 2</title>
 </head>
 <body>
-$END$
+<h2>Kiểm tra cặp số thân thiết </h2>
+<label for="soThuNhat"> Số Thứ Nhất </label>
+<input type="number" id="soThuNhat"><br>
+<label for="soThuHai"> Số Thứ Hai  </label>
+<input type="number" id="soThuHai"><br>
+<button onclick="kiemTraCapSo()">Kiểm Tra</button><br>
+<p id="ketQua"></p>
+<script>
+    function tinhTong(n) {
+        if (n <= 0){
+            return 0;
+        }
+        let tong = 0;
+        for (let i =1; i < n ; i++){
+            if ( n % i === 0){
+                tong += i;
+            }
+        }
+        return  tong;
+    }
+    function kiemTraCapSo(){
+        const n1 = parseInt(document.getElementById("soThuNhat").value);
+        const  n2 = parseInt(document.getElementById("soThuHai").value);
+        const ketQuaElement = document.getElementById("ketQua");
+        if (isNaN(n1) || isNaN(n2) || n1 <= 0 || n2 <= 0){
+            ketQuaElement.textContent = "Nhập 2 số nguyên dương";
+        }
+        const  tongSo1 = tinhTong(n1);
+        const  tongSo2 = tinhTong(n2)
+        if (tongSo1 === n1 && tongSo2 === n2){
+            ketQuaElement.textContent = `(${n1} , ${n2}  là cặp số thân thiết.`;
+        } else {
+            ketQuaElement.textContent =`(${n1} , ${n2} không là cặp số thân thiết.`;
+        }
+
+    }
+</script>
 </body>
 </html>
